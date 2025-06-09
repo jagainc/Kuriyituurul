@@ -1,1 +1,156 @@
+/* Base Setup */
+body {
+  margin: 0;
+  font-family: 'Fira Code', monospace;
+  background-color: #f9fafb;
+  color: #111827;
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+}
 
+/* Top Header */
+.top-bar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1rem;
+  z-index: 1000;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Logo */
+.logo img {
+  height: 40px;
+  width: auto;
+}
+
+/* Hamburger Icon with Animation */
+.hamburger {
+  display: inline-block;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+}
+
+.hamburger div {
+  width: 25px;
+  height: 3px;
+  background-color: #111827;
+  margin: 5px 0;
+  transition: 0.4s;
+  border-radius: 2px;
+}
+
+.hamburger.open .bar1 {
+  transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.hamburger.open .bar2 {
+  opacity: 0;
+}
+
+.hamburger.open .bar3 {
+  transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Side Menu */
+.side-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  height: 100vh;
+  width: 240px;
+  background-color: #ffffff;
+  box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+  padding-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  transition: right 0.4s ease-in-out;
+  z-index: 999;
+}
+
+.side-menu.show {
+  right: 0;
+}
+
+.side-menu a {
+  color: #111827;
+  text-decoration: none;
+  padding: 1rem;
+  width: 100%;
+  font-size: 1.1rem;
+  border-bottom: 1px solid #e5e7eb;
+  transition: background 0.2s;
+}
+
+.side-menu a:hover {
+  background-color: #f3f4f6;
+}
+
+/* Main Content Scroll */
+main {
+  padding-top: 60px;
+}
+
+.snap {
+  scroll-snap-align: start;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+/* Card for Code */
+.card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+  width: 95%;
+  max-width: 420px;
+  aspect-ratio: 9 / 16;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+}
+
+.card h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #3b82f6;
+  margin-bottom: 1rem;
+}
+
+.card pre {
+  background-color: #f3f4f6;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.875rem;
+  white-space: pre-wrap;
+  overflow-y: auto;
+  flex-grow: 1;
+  color: #111827;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .card {
+    max-width: 90%;
+    padding: 1rem;
+  }
+
+  .card h2 {
+    font-size: 1.25rem;
+  }
+
+  .card pre {
+    font-size: 0.8rem;
+  }
+}
