@@ -1,0 +1,20 @@
+[
+  
+  {
+    "language": "Python",
+    "code": "def is_palindrome(text):\n    \"\"\"Check if the given string is a palindrome.\"\"\"\n    # Remove non-alphanumeric characters and convert to lowercase\n    cleaned = ''.join(char.lower() for char in text if char.isalnum())\n    \n    # Compare the cleaned string to its reverse\n    return cleaned == cleaned[::-1]\n\n# Test cases\nexamples = [\n    \"Madam\",\n    \"racecar\",\n    \"A man, a plan, a canal: Panama\",\n    \"Hello, World!\"\n]\n\nfor example in examples:\n    print(f\"'{example}' -> {is_palindrome(example)}\")"
+  },
+
+  {
+    "language": "Java",
+    "code": "public class Palindrome {\n    public static boolean isPalindrome(String text) {\n        String cleaned = text.replaceAll(\"[^a-zA-Z0-9]\", \"\").toLowerCase();\n        String reversed = new StringBuilder(cleaned).reverse().toString();\n        return cleaned.equals(reversed);\n    }\n\n    public static void main(String[] args) {\n        String[] examples = {\"Madam\", \"racecar\", \"A man, a plan, a canal: Panama\", \"Hello, World!\"};\n        for (String example : examples) {\n            System.out.printf(\"\\\"%s\\\" -> %b%n\", example, isPalindrome(example));\n        }\n    }\n}"
+  },
+  {
+    "language": "JavaScript",
+    "code": "function greet() {\\n  console.log('Hello, JS');\\n}"
+  },
+  {
+    "language": "HTML",
+    "code": "<h1>Hello HTML</h1>"
+  }
+]
