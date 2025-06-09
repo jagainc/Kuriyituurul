@@ -1,1 +1,49 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8">
+  <title>குறியீட்டு உருள்</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Header with Logo and Hamburger -->
+  <header class="top-bar">
+    <div class="logo">
+      <img src="{{ url_for('static', filename='logo.png') }}" alt="குறியீட்டு உருள் Logo">
+    </div>
+    <div class="hamburger" onclick="toggleMenu(this)">
+      <div class="bar1"></div>
+      <div class="bar2"></div>
+      <div class="bar3"></div>
+    </div>
+  </header>
+
+  <!-- Animated Side Menu -->
+  <nav class="side-menu" id="sideMenu">
+    <a href="/">🏠 Home</a>
+    <a href="/messages">💬 Messages</a>
+  </nav>
+
+  <!-- Main Scroll Area -->
+  <main>
+    {% for snippet in snippets %}
+      <section class="snap">
+        <div class="card">
+          <h2>{{ snippet.language }}</h2>
+          <pre><code>{{ snippet.code }}</code></pre>
+        </div>
+      </section>
+    {% endfor %}
+  </main>
+
+  <script>
+    function toggleMenu(icon) {
+      icon.classList.toggle("open");
+      document.getElementById("sideMenu").classList.toggle("show");
+    }
+  </script>
+</body>
+</html>
 
